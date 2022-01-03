@@ -9,7 +9,7 @@ def simX(p=0.2):
         x = 1
     return x
 
-def monteCarlo(nSim = 10000):
+def monteCarlo(nSim=10000):
     c = 0
     for i in range(nSim):
         x = simX() 
@@ -31,5 +31,21 @@ def simXPoisson(l=2):
         x += 1
         p = p + poisson(x,l)
     return x
+
+def simEspVar(nSim=100000):
+    somme = 0
+    for i in range(nSim):
+        somme = somme + simXPoisson()
+    moy = somme / nSim
+
+    somme = 0
+    for i in range(nSim):
+        v = pow((simXPoisson() - moy), 2)
+        somme = somme + v
+    var = somme / nSim
+    return moy, var
+
+print(simEspVar())
+
 
 
