@@ -45,7 +45,15 @@ def simEspVar(nSim=100000):
     var = somme / nSim
     return moy, var
 
-print(simEspVar())
-
-
-
+#exo 3 
+def simXRejetCercle():
+    x = np.random.random()*3 - 1.5
+    y = np.random.random()*3 - 1.5
+    
+    c = 0
+    while np.sqrt(x**2+y**2)>1:
+        c+=1
+        x = np.random.random()*4 - 2
+        y = np.random.random()*4 - 2
+    print(c)
+    return x,y
